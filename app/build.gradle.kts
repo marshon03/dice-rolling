@@ -20,6 +20,14 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions.add("default")
+    productFlavors {
+        all {  }
+        create("dev") {
+            dimension = "default"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -55,10 +63,14 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:1.7.3")
     implementation("androidx.compose.runtime:runtime-livedata:1.7.3")
     implementation("androidx.compose.compiler:compiler:1.5.2")
+
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+
     implementation("com.google.dagger:hilt-android:2.52") // Hilt core
     kapt("com.google.dagger:hilt-android-compiler:2.52") // Hilt compiler
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
