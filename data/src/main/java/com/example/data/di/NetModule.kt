@@ -32,7 +32,7 @@ object NetModule {
     ): Retrofit = Retrofit.Builder()
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("https://api.random.org/json-rpc/4/invoke")
+        .baseUrl("https://api.random.org/")
         .build()
 
     @Provides

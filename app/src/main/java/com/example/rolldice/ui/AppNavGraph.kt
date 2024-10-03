@@ -1,6 +1,7 @@
 package com.example.rolldice.ui
 
 import androidx.activity.OnBackPressedDispatcher
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -14,6 +15,6 @@ fun NavGraphBuilder.AppNavGraph(
         route = "home",
         startDestination = "home_start_destination"
     ) {
-        composable("home_start_destination") { HomeScreen(navController) }
+        composable("home_start_destination") { HomeScreen(navController, hiltViewModel()) }
     }
 }

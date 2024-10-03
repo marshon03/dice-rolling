@@ -6,6 +6,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface RandomApi {
-    @POST("/")
-    fun getRandomNumbers(@Body request: RandomRequest): RandomResponse
+    @POST("json-rpc/4/invoke")
+    suspend fun getRandomNumbers(@Body request: RandomRequest): RandomResponse
 }

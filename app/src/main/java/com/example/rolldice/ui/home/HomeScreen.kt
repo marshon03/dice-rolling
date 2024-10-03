@@ -20,7 +20,7 @@ import androidx.navigation.NavController
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController, viewModel: HomeViewModel) {
     Scaffold(
         topBar = { TopAppBar(title = { Text("Home Screen") }) }
     ) { innerPadding ->
@@ -35,7 +35,7 @@ fun HomeScreen(navController: NavController) {
                     .padding(bottom = 32.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
                 onClick = {
-                    //TODO: roll dice api call
+                    viewModel.fetchRandomNumbers()
                 }
             ) {
                 Text(color = Color.White, text = "Roll Dice")
