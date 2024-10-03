@@ -29,4 +29,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 daggerHilt = { id = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "daggerHilt" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 
