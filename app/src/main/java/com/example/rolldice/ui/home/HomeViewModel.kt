@@ -13,7 +13,7 @@ class HomeViewModel @Inject constructor(
     private val randomRepository: RandomRepository
 ) : ViewModel() {
 
-    var diceRollResult = mutableIntStateOf(0)
+    val diceRollResult = mutableIntStateOf(0)
 
     fun fetchRandomNumbers() {
         viewModelScope.launch {

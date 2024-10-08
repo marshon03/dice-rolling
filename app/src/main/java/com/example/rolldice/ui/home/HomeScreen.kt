@@ -13,6 +13,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,11 +22,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.rolldice.R
+import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel) {
+    val scope = rememberCoroutineScope()
+
     Scaffold(
         topBar = { TopAppBar(title = { Text("") }) }
     ) { innerPadding ->
@@ -59,7 +64,9 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel) {
                     .padding(bottom = 96.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
                 onClick = {
-                    viewModel.fetchRandomNumbers()
+                    scope.launch {
+                        viewModel.fetchRandomNumbers()
+                    }
                 }
             ) {
                 Text(color = Color.White, text = "Roll")
